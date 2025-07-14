@@ -1,0 +1,98 @@
+@import "tailwindcss";
+
+:root {
+  --background: #000;
+  --foreground: #fff;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body, html {
+  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"><text x="0" y="24" font-size="28">🚀</text></svg>') 8 24, auto;
+}
+
+/* Night sky background utility - more vibrant galaxy gradient */
+.bg-night {
+  background: #000 !important;
+}
+
+.text-white {
+  color: #fff;
+}
+
+/* Cosmic font and accent colors */
+:root {
+  --cosmic-accent: #38bdf8;
+  --cosmic-glow: #a5b4fc;
+  --cosmic-pink: #ff6bcb;
+  --cosmic-purple: #a084ee;
+  --cosmic-yellow: #ffe066;
+}
+
+h1, h2, h3 {
+  letter-spacing: 0.02em;
+}
+
+/* Gempak glowing border for cards */
+.gempak-glow {
+  /* Remove glowing border and box-shadow, keep only a subtle border */
+  box-shadow: none;
+  border: 1.5px solid #fff;
+  background: none;
+}
+
+/* Animated twinkling stars overlay */
+@keyframes twinkle {
+  0%, 100% { opacity: 0.8; }
+  50% { opacity: 0.2; }
+}
+.star-twinkle {
+  position: absolute;
+  border-radius: 50%;
+  background: white;
+  pointer-events: none;
+  animation: twinkle 2s infinite ease-in-out;
+}
+
+/* StarField canvas should be behind all content */
+canvas {
+  position: fixed;
+  top: 0; left: 0; width: 100vw; height: 100vh;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Add cosmic nebula fog effect */
+.nebula {
+  position: absolute;
+  pointer-events: none;
+  z-index: 1;
+  width: 60vw;
+  height: 60vw;
+  left: 20vw;
+  top: 10vh;
+  background: radial-gradient(circle at 50% 50%, var(--cosmic-pink) 0%, transparent 70%),
+    radial-gradient(circle at 70% 30%, var(--cosmic-purple) 0%, transparent 80%),
+    radial-gradient(circle at 30% 70%, var(--cosmic-yellow) 0%, transparent 80%);
+  opacity: 0.18;
+  filter: blur(60px);
+}
+
+/* Highlight nav link on click/active/focus for instant feedback */
+nav a:active, nav a:focus {
+  font-weight: bold;
+  filter: brightness(1.5);
+  text-shadow: 0 0 8px #fff;
+}
