@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useRef } from "react";
-export default function StarField() {
+export default function StarField({ shootingOnly = false }) {
   const canvasRef = useRef(null);
   const cursorPos = useRef({ x: 0.5, y: 0.5 });
   const fireState = useRef({ active: false, t: 0 });
@@ -67,55 +67,57 @@ export default function StarField() {
       // Animate spiral rotation
       const spiralRotation = (time / 18000) * 2 * Math.PI;
       // Draw spiral galaxy stars (centered)
-      for (const star of spiralBase) {
-        const angle = star.baseAngle + spiralRotation;
-        const x = 0.5 + Math.cos(angle) * star.radius;
-        const y = 0.5 + Math.sin(angle) * star.radius;
-        let twinkle = Math.abs(Math.sin(time / (900 * star.twSpeed) + star.tw));
-        let alpha = star.o * (0.6 + 0.4 * twinkle);
-        let radius = star.r;
-        let shadowBlur = 16;
-        if (star.shiny) {
-          radius = star.r * 2.2 + 0.8;
-          shadowBlur = 36;
-          alpha = 0.7 + 0.3 * Math.abs(Math.sin(time / (700 * star.twSpeed) + star.phase));
+      if (!shootingOnly) {
+        for (const star of spiralBase) {
+          const angle = star.baseAngle + spiralRotation;
+          const x = 0.5 + Math.cos(angle) * star.radius;
+          const y = 0.5 + Math.sin(angle) * star.radius;
+          let twinkle = Math.abs(Math.sin(time / (900 * star.twSpeed) + star.tw));
+          let alpha = star.o * (0.6 + 0.4 * twinkle);
+          let radius = star.r;
+          let shadowBlur = 16;
+          if (star.shiny) {
+            radius = star.r * 2.2 + 0.8;
+            shadowBlur = 36;
+            alpha = 0.7 + 0.3 * Math.abs(Math.sin(time / (700 * star.twSpeed) + star.phase));
+          }
+          if (star.flare) {
+            radius *= 1.5 + 0.5 * Math.abs(Math.sin(time / (400 * star.twSpeed) + star.phase));
+            shadowBlur *= 1.5;
+            alpha = Math.min(1, alpha + 0.2 * Math.abs(Math.sin(time / (400 * star.twSpeed) + star.phase)));
+          }
+          ctx.globalAlpha = alpha;
+          ctx.beginPath();
+          ctx.arc(x * canvas.width, y * canvas.height, radius, 0, 2 * Math.PI);
+          ctx.fillStyle = "#fff";
+          ctx.shadowColor = "#fff";
+          ctx.shadowBlur = shadowBlur;
+          ctx.fill();
         }
-        if (star.flare) {
-          radius *= 1.5 + 0.5 * Math.abs(Math.sin(time / (400 * star.twSpeed) + star.phase));
-          shadowBlur *= 1.5;
-          alpha = Math.min(1, alpha + 0.2 * Math.abs(Math.sin(time / (400 * star.twSpeed) + star.phase)));
+        // Draw background stars
+        for (const star of bgStars) {
+          let twinkle = Math.abs(Math.sin(time / (900 * star.twSpeed) + star.tw));
+          let alpha = star.o * (0.6 + 0.4 * twinkle);
+          let radius = star.r;
+          let shadowBlur = 10;
+          if (star.shiny) {
+            radius = star.r * 2.2 + 0.8;
+            shadowBlur = 22;
+            alpha = 0.7 + 0.3 * Math.abs(Math.sin(time / (700 * star.twSpeed) + star.phase));
+          }
+          if (star.flare) {
+            radius *= 1.5 + 0.5 * Math.abs(Math.sin(time / (400 * star.twSpeed) + star.phase));
+            shadowBlur *= 1.5;
+            alpha = Math.min(1, alpha + 0.2 * Math.abs(Math.sin(time / (400 * star.twSpeed) + star.phase)));
+          }
+          ctx.globalAlpha = alpha;
+          ctx.beginPath();
+          ctx.arc(star.x * canvas.width, star.y * canvas.height, radius, 0, 2 * Math.PI);
+          ctx.fillStyle = "#fff";
+          ctx.shadowColor = "#fff";
+          ctx.shadowBlur = shadowBlur;
+          ctx.fill();
         }
-        ctx.globalAlpha = alpha;
-        ctx.beginPath();
-        ctx.arc(x * canvas.width, y * canvas.height, radius, 0, 2 * Math.PI);
-        ctx.fillStyle = "#fff";
-        ctx.shadowColor = "#fff";
-        ctx.shadowBlur = shadowBlur;
-        ctx.fill();
-      }
-      // Draw background stars
-      for (const star of bgStars) {
-        let twinkle = Math.abs(Math.sin(time / (900 * star.twSpeed) + star.tw));
-        let alpha = star.o * (0.6 + 0.4 * twinkle);
-        let radius = star.r;
-        let shadowBlur = 10;
-        if (star.shiny) {
-          radius = star.r * 2.2 + 0.8;
-          shadowBlur = 22;
-          alpha = 0.7 + 0.3 * Math.abs(Math.sin(time / (700 * star.twSpeed) + star.phase));
-        }
-        if (star.flare) {
-          radius *= 1.5 + 0.5 * Math.abs(Math.sin(time / (400 * star.twSpeed) + star.phase));
-          shadowBlur *= 1.5;
-          alpha = Math.min(1, alpha + 0.2 * Math.abs(Math.sin(time / (400 * star.twSpeed) + star.phase)));
-        }
-        ctx.globalAlpha = alpha;
-        ctx.beginPath();
-        ctx.arc(star.x * canvas.width, star.y * canvas.height, radius, 0, 2 * Math.PI);
-        ctx.fillStyle = "#fff";
-        ctx.shadowColor = "#fff";
-        ctx.shadowBlur = shadowBlur;
-        ctx.fill();
       }
       // Draw and update shooting stars
       for (let i = shootingStars.length - 1; i >= 0; i--) {
@@ -156,7 +158,7 @@ export default function StarField() {
       window.removeEventListener("resize", resize);
       cancelAnimationFrame(animationId);
     };
-  }, []);
+  }, [shootingOnly]);
   return (
     <>
       <canvas ref={canvasRef} className="w-full h-full fixed inset-0" style={{ zIndex: 0, pointerEvents: 'none' }} />

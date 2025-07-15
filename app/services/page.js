@@ -7,16 +7,20 @@ export default function Services() {
       <div className="nebula" />
       <div className="relative z-10 w-full flex flex-col items-center justify-center py-10 sm:py-16 mb-6 sm:mb-8 bg-black/60 border-b border-white/10 shadow-lg">
         <h1 className="text-3xl sm:text-5xl font-extrabold mb-2 text-center tracking-tight drop-shadow-lg">Our Services</h1>
-        <p className="text-base sm:text-lg text-slate-300 text-center max-w-xs sm:max-w-2xl">Explore our main offerings and how we can help you conquer the digital galaxy.</p>
+        <p className="text-base sm:text-lg text-slate-300 text-center max-w-xs sm:max-w-2xl">Discover our comprehensive range of IT and software development services. We deliver high-quality, secure, and scalable solutions to help your business grow and succeed in the digital age.</p>
       </div>
       <div className="relative z-10 flex flex-col md:flex-row gap-6 sm:gap-8 w-full max-w-xs sm:max-w-4xl justify-center">
         <ServiceCard
-          title="App Development"
-          description="We build modern, scalable mobile and web applications to launch your ideas into the digital universe."
+          title="Web & Mobile App Development"
+          description="Custom web and mobile applications built with modern frameworks. We focus on performance, user experience, and future scalability."
         />
         <ServiceCard
-          title="Software Solutions"
-          description="Custom software tailored to your business needs, engineered to help you conquer your market."
+          title="Enterprise Software Solutions"
+          description="Robust, secure, and scalable software tailored to your business needs. We engineer solutions that streamline operations and drive results."
+        />
+        <ServiceCard
+          title="IT Consulting & Support"
+          description="Expert advice and ongoing support to help you make the right technology decisions and keep your systems running smoothly."
         />
       </div>
     </div>

@@ -14,19 +14,27 @@ export default function Home() {
       <main className="relative z-10 flex flex-col items-center justify-center flex-1 w-full px-2 sm:px-4 py-12 sm:py-24 gap-8 sm:gap-12">
         <h1 className="text-3xl sm:text-6xl font-extrabold tracking-tight text-center drop-shadow-lg">MyTech Padu Solutions</h1>
         <h2 className="text-lg sm:text-2xl font-medium text-center max-w-xs sm:max-w-2xl opacity-90">
-          IT & Software Development Company<br/>
-          <span className="block mt-2 text-base sm:text-xl font-light" style={{color: 'var(--cosmic-accent)'}}>Conquering the Galaxy of Technology</span>
+          Empowering Your Digital Future<br/>
+          <span className="block mt-2 text-base sm:text-xl font-light" style={{color: 'var(--cosmic-accent)'}}>Innovative IT & Software Development for Modern Businesses</span>
         </h2>
+        <p className="text-base sm:text-lg text-center text-slate-300 max-w-2xl mt-2 mb-4">
+          We are a passionate team of technology experts dedicated to delivering high-quality, scalable, and secure software solutions. From web and mobile app development to cloud integration and digital transformation, we help businesses thrive in a rapidly evolving digital landscape.
+        </p>
         <div className="flex flex-col md:flex-row gap-6 sm:gap-8 w-full max-w-xs sm:max-w-4xl justify-center mt-6 sm:mt-8">
           <ServiceCard
             title="App Development"
-            description="We build modern, scalable mobile and web applications to launch your ideas into the digital universe."
+            description="Modern, scalable web and mobile applications built with the latest technologies. We turn your ideas into powerful digital products that drive growth and engagement."
             icon="💻"
           />
           <ServiceCard
-            title="Software Solutions"
-            description="Custom software tailored to your business needs, engineered to help you conquer your market."
+            title="Custom Software Solutions"
+            description="Tailored software to solve your unique business challenges. Our solutions are engineered for reliability, security, and long-term success."
             icon="🛠️"
+          />
+          <ServiceCard
+            title="IT Consulting & Support"
+            description="Expert guidance and ongoing support for your digital journey. We help you make the right technology choices and ensure your systems run smoothly."
+            icon="🤝"
           />
         </div>
       </main>

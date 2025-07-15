@@ -7,7 +7,7 @@ export default function Portfolio() {
       <div className="nebula" />
       <div className="relative z-10 w-full flex flex-col items-center justify-center py-10 sm:py-16 mb-6 sm:mb-8 bg-black/60 border-b border-white/10 shadow-lg">
         <h1 className="text-3xl sm:text-5xl font-extrabold mb-2 text-center tracking-tight drop-shadow-lg">Portfolio</h1>
-        <p className="text-base sm:text-lg text-slate-300 text-center max-w-xs sm:max-w-2xl">Explore some of our stellar projects and case studies.</p>
+        <p className="text-base sm:text-lg text-slate-300 text-center max-w-xs sm:max-w-2xl">Discover our portfolio of innovative projects and successful collaborations. We take pride in delivering impactful solutions that drive client success and digital transformation.</p>
       </div>
       <div className="relative z-10 w-full max-w-xs sm:max-w-4xl flex flex-col gap-6 sm:gap-8 items-center">
         <div className="relative bg-black/60 border-2 border-cyan-400 rounded-2xl shadow-2xl p-6 sm:p-8 w-full max-w-2xl flex flex-col items-center gap-4 mt-4 animate-fadein backdrop-blur-md" style={{boxShadow: '0 0 32px 0 #06b6d4, 0 2px 16px 0 #0008'}}>

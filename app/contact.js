@@ -11,7 +11,7 @@ export default function Contact() {
       </form>
       <div className="text-slate-300 text-center">
         <p>Email: info@mytechpadu.com</p>
-        <p>Address: (Your company address here)</p>
+        {/* <p>Address: (Your company address here)</p> */}
       </div>
     </div>
   );
