@@ -44,7 +44,7 @@ export default function Navbar() {
         <div className="fixed inset-0 z-[99] bg-black/60 backdrop-blur-sm sm:hidden">
           <nav
             ref={sidebarRef}
-            className="fixed top-0 left-0 h-full w-64 bg-black border-r border-white/10 shadow-2xl flex flex-col gap-2 p-6 z-[100] animate-slide-in"
+            className="fixed top-0 left-0 h-full w-64 bg-black border-r border-white/10 shadow-2xl flex flex-col gap-2 p-6 z-[100]"
           >
             <button
               className="self-end mb-6 p-2 rounded bg-black/60 border border-white/10 text-white"
@@ -59,7 +59,7 @@ export default function Navbar() {
                 <a
                   key={link.href}
                   href={link.href}
-                  className={`block text-lg py-2 px-3 rounded text-white hover:text-sky-200 transition ${isActive ? 'font-bold drop-shadow-[0_0_8px_white] brightness-150 bg-white/10' : ''}`}
+                  className={`block text-lg py-2 px-3 rounded text-white hover:text-sky-200 transition ${isActive ? 'font-semibold bg-white/10' : ''}`}
                   onClick={() => setSidebarOpen(false)}
                 >
                   {link.label}
@@ -78,7 +78,7 @@ export default function Navbar() {
             <a
               key={link.href}
               href={link.href}
-              className={`text-white hover:text-sky-200 transition px-1 rounded ${isActive ? 'font-bold drop-shadow-[0_0_8px_white] brightness-150' : ''}`}
+              className={`text-white hover:text-sky-200 transition px-1 rounded ${isActive ? 'font-semibold' : ''}`}
             >
               {link.label}
             </a>

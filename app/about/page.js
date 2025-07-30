@@ -1,15 +1,12 @@
 "use client";
-import StarField from "../StarField";
 export default function About() {
   return (
-    <div className="relative min-h-screen flex flex-col items-center bg-night text-white px-2 sm:px-4 pb-24 overflow-hidden">
-      <div className="absolute inset-0 z-0 pointer-events-none"></div>
-      <div className="nebula" />
-      <section className="relative z-10 w-full flex flex-col items-center justify-center py-10 sm:py-16 mb-6 sm:mb-8 bg-black/60 border-b border-white/10 shadow-lg">
-        <h1 className="text-3xl sm:text-5xl font-extrabold mb-2 text-center tracking-tight drop-shadow-lg">About Us</h1>
+    <div className="relative min-h-screen flex flex-col items-center bg-night text-white px-2 sm:px-4 pb-24">
+      <section className="relative w-full flex flex-col items-center justify-center py-10 sm:py-16 mb-6 sm:mb-8 bg-black/60 border-b border-white/10 shadow-lg">
+        <h1 className="text-3xl sm:text-5xl font-extrabold mb-2 text-center tracking-tight">About Us</h1>
         <p className="text-base sm:text-lg text-slate-300 text-center max-w-xs sm:max-w-2xl">Learn more about MyTech Padu Solutions—your trusted partner for innovative IT and software development. We are committed to delivering excellence, driving digital transformation, and empowering businesses to succeed in the technology era.</p>
       </section>
-      <section className="relative z-10 w-full max-w-xs sm:max-w-3xl flex flex-col md:flex-row gap-6 sm:gap-8 mb-8 sm:mb-12">
+      <section className="relative w-full max-w-xs sm:max-w-3xl flex flex-col md:flex-row gap-6 sm:gap-8 mb-8 sm:mb-12">
         <div className="flex-1 bg-black/80 border border-white rounded-xl p-4 sm:p-8 shadow-md mb-4 md:mb-0">
           <h2 className="text-xl sm:text-2xl font-semibold mb-2 sm:mb-4">Our Mission</h2>
           <p className="text-sm sm:text-base text-slate-200">To empower organizations and individuals by delivering innovative, reliable, and scalable technology solutions. We strive to accelerate digital transformation and help our clients achieve sustainable growth in a connected world.</p>

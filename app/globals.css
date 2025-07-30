@@ -20,7 +20,6 @@
 }
 
 body, html {
-  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"><text x="0" y="24" font-size="28">🚀</text></svg>') 8 24, auto;
   font-family: var(--font-geist-sans), 'Segoe UI', 'Roboto', 'Arial', sans-serif;
   font-size: 18px;
   line-height: 1.7;
@@ -28,7 +27,7 @@ body, html {
   background: var(--background);
 }
 
-/* Night sky background utility - more vibrant galaxy gradient */
+/* Professional background utility */
 .bg-night {
   background: #000 !important;
 }
@@ -37,13 +36,14 @@ body, html {
   color: #fff;
 }
 
-/* Cosmic font and accent colors */
+/* Professional color palette */
 :root {
-  --cosmic-accent: #38bdf8;
-  --cosmic-glow: #a5b4fc;
-  --cosmic-pink: #ff6bcb;
-  --cosmic-purple: #a084ee;
-  --cosmic-yellow: #ffe066;
+  --primary-blue: #2563eb;
+  --primary-blue-hover: #1d4ed8;
+  --accent-gray: #64748b;
+  --text-light: #f1f5f9;
+  --text-muted: #94a3b8;
+  --border-light: #334155;
 }
 
 h1, h2, h3 {
@@ -65,54 +65,49 @@ h1, h2, h3 {
   }
 }
 
-/* Gempak glowing border for cards */
-.gempak-glow {
-  /* Remove glowing border and box-shadow, keep only a subtle border */
-  box-shadow: none;
-  border: 1.5px solid #fff;
-  background: none;
+/* Professional card styling */
+.professional-card {
+  background: #111827;
+  border: 1px solid #374151;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease;
 }
 
-/* Animated twinkling stars overlay */
-@keyframes twinkle {
-  0%, 100% { opacity: 0.8; }
-  50% { opacity: 0.2; }
-}
-.star-twinkle {
-  position: absolute;
-  border-radius: 50%;
-  background: white;
-  pointer-events: none;
-  animation: twinkle 2s infinite ease-in-out;
+.professional-card:hover {
+  border-color: #4b5563;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
 }
 
-/* StarField canvas should be behind all content */
-canvas {
-  position: fixed;
-  top: 0; left: 0; width: 100vw; height: 100vh;
-  z-index: 0;
-  pointer-events: none;
+/* Professional button styling */
+.btn-primary {
+  background: var(--primary-blue);
+  color: white;
+  padding: 12px 24px;
+  border-radius: 6px;
+  font-weight: 500;
+  transition: background-color 0.2s ease;
 }
 
-/* Add cosmic nebula fog effect */
-.nebula {
-  position: absolute;
-  pointer-events: none;
-  z-index: 1;
-  width: 60vw;
-  height: 60vw;
-  left: 20vw;
-  top: 10vh;
-  background: radial-gradient(circle at 50% 50%, var(--cosmic-pink) 0%, transparent 70%),
-    radial-gradient(circle at 70% 30%, var(--cosmic-purple) 0%, transparent 80%),
-    radial-gradient(circle at 30% 70%, var(--cosmic-yellow) 0%, transparent 80%);
-  opacity: 0.18;
-  filter: blur(60px);
+.btn-primary:hover {
+  background: var(--primary-blue-hover);
 }
 
-/* Highlight nav link on click/active/focus for instant feedback */
+/* Professional nav link styling */
 nav a:active, nav a:focus {
-  font-weight: bold;
-  filter: brightness(1.5);
-  text-shadow: 0 0 8px #fff;
+  font-weight: 600;
+  color: var(--primary-blue);
+}
+
+/* Remove all cosmic effects */
+.nebula {
+  display: none;
+}
+
+canvas {
+  display: none;
+}
+
+.star-twinkle {
+  display: none;
 }

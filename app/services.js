@@ -19,7 +19,7 @@ export default function Services() {
 
 function ServiceCard({ title, description }) {
   return (
-    <div className="bg-black gempak-glow rounded-xl shadow-lg p-6 flex flex-col items-center w-full max-w-xs backdrop-blur-md border border-white">
+    <div className="professional-card p-6 flex flex-col items-center w-full max-w-xs">
       <h3 className="text-xl font-semibold mb-2 text-white">{title}</h3>
       <p className="text-base text-white text-center">{description}</p>
     </div>
